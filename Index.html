@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Página de Inicio de Sesión Moderna | AsmrProg</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="signup-form">
+                <h1>Crear Cuenta</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu correo electrónico para registrarte</span>
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Correo Electrónico" id="signup-email">
+                <input type="password" placeholder="Contraseña">
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="signin-form">
+                <h1>Iniciar Sesión</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu correo electrónico y contraseña</span>
+                <input type="email" placeholder="Correo Electrónico" id="signin-email">
+                <input type="password" placeholder="Contraseña">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>¡Bienvenido de nuevo!</h1>
+                    <p>Descubre todo lo que tenemos para ofrecerte. Completa tu registro y disfruta de funciones personalizadas diseñadas especialmente para ti</p>
+                    <button class="hidden" id="login">Iniciar Sesión    </button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>¡Hola, amigo!</h1>
+                    <p>¿Aún no tienes cuenta? ¡Regístrate ahora y descubre todas las funciones que tenemos para ti!</p>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            var emailInput = document.getElementById('signup-email');
+            var email = emailInput.value.trim();
+            if (!isValidEmail(email)) {
+                alert('Por favor ingresa un correo electrónico válido.');
+                event.preventDefault();
+            }
+        });
+
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            var emailInput = document.getElementById('signin-email');
+            var email = emailInput.value.trim();
+            if (!isValidEmail(email)) {
+                alert('Por favor ingresa un correo electrónico válido.');
+                event.preventDefault();
+            }
+        });
+
+        function isValidEmail(email) {
+            // Expresión regular para validar el formato de correo electrónico
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+
+</html>
